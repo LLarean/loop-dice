@@ -3367,7 +3367,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -79.55}
+  m_AnchoredPosition: {x: 0, y: -79.54999}
   m_SizeDelta: {x: 0, y: -159.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2021258115
@@ -3406,7 +3406,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2123637545}
   - component: {fileID: 2123637547}
-  - component: {fileID: 2123637548}
   - component: {fileID: 2123637546}
   m_Layer: 5
   m_Name: BattlePoint
@@ -3472,23 +3471,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2123637544}
   m_CullTransparentMesh: 1
---- !u!114 &2123637548
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2123637544}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36b9f26891b5b03479e923dfec2cfb3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _deckView: {fileID: 0}
-  _menu: {fileID: 0}
-  _main: {fileID: 0}
-  _unit: {fileID: 0}
-  _battlePoitns: []
 --- !u!1001 &8528890998168117420
 PrefabInstance:
   m_ObjectHideFlags: 0
