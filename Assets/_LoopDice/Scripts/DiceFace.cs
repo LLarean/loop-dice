@@ -13,42 +13,42 @@ namespace LoopDice
         [SerializeField] private GameObject _six;
 
         [Button]
-        private void ShowOne()
+        public void ShowOne()
         {
             HideAll();
             _one.gameObject.SetActive(true);
         }
         
         [Button]
-        private void ShowTwo()
+        public void ShowTwo()
         {
             HideAll();
             _two.gameObject.SetActive(true);
         }
         
         [Button]
-        private void ShowThree()
+        public void ShowThree()
         {
             HideAll();
             _three.gameObject.SetActive(true);
         }
         
         [Button]
-        private void ShowFour()
+        public void ShowFour()
         {
             HideAll();
             _four.gameObject.SetActive(true);
         }
         
         [Button]
-        private void ShowFive()
+        public void ShowFive()
         {
             HideAll();
             _five.gameObject.SetActive(true);
         }
         
         [Button]
-        private void ShowSix()
+        public void ShowSix()
         {
             HideAll();
             _six.gameObject.SetActive(true);
