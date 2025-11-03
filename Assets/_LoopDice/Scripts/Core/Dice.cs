@@ -1,35 +1,60 @@
 ﻿using System;
+using NaughtyAttributes;
+using UnityEngine;
+using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 namespace LoopDice.Core
 {
-    public record Dice
+    public class Dice : MonoBehaviour
     {
         private const int MinimumValue = 1;
+        private const int MaximumValue = 6;
+        
+        [SerializeField] private Button _button;
+        [SerializeField] private GameObject _checkmark;
+        [Space]
+        [SerializeField] private GameObject[] _diceFaces;
 
-        private readonly int _maximumValue;
-        private readonly Random _random;
-        private readonly int _currentValue = MinimumValue;
+        public event Action OnDiceClicked;
+        
+        private int _currentValue = MinimumValue;
+        public int CurrentValue() => _currentValue;
+        public bool IsSelected => _checkmark.activeSelf;
 
-        public Dice(Random random, int maximumValue)
+        public void EnableInteractable() => _button.interactable = true;
+        
+        public void DisableInteractable() => _button.interactable = false;
+        
+        [Button]
+        public void Roll()
         {
-            _random = random;
-            _maximumValue = maximumValue;
+            if(_checkmark.activeSelf == false) return;
+            
+            _currentValue = Random.Range(MinimumValue, MaximumValue);
+            Debug.Log($"Dice rolled: {_currentValue}");
+            DisableAllFaces();
+            _diceFaces[_currentValue - 1].gameObject.SetActive(true);
         }
 
-        private Dice(Random random, int maximumValue, int currentValue) : this(random, maximumValue)
+        private void DisableAllFaces()
         {
-            _currentValue = currentValue;
+            foreach (var diceFace in _diceFaces)
+            {
+                diceFace.gameObject.SetActive(false);
+            }
         }
 
-        public Dice Roll()
+        private void Start()
         {
-            var randomValue = _random.Next(MinimumValue, _maximumValue + 1);
-            return new Dice(_random, _maximumValue, randomValue);
+            _button.onClick.AddListener(DiceClick);
         }
 
-        public int Value()
+        private void OnDestroy()
         {
-            return _currentValue;
+            _button.onClick.RemoveAllListeners();
         }
+
+        private void DiceClick() => _checkmark.gameObject.SetActive(!_checkmark.activeSelf);
     }
 }
