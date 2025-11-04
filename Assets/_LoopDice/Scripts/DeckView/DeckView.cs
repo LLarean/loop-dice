@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = System.Random;
@@ -11,6 +12,7 @@ namespace LoopDice
         [Space]
         [SerializeField] private Button _back;
         [SerializeField] private Button _roll;
+        [SerializeField] private TMP_Text _rollLabel;
         [Space]
         [SerializeField] private DiceFace[] _diceFaces;
 
@@ -18,6 +20,7 @@ namespace LoopDice
         {
             _back.onClick.AddListener(Back);
             _roll.onClick.AddListener(Roll);
+            _rollLabel.text = "Roll All";
         }
 
         private void Back()
@@ -64,6 +67,8 @@ namespace LoopDice
                     _diceFaces[i].ShowSix();
                 }
             }
+
+            _rollLabel.text = "Roll Selected";
         }
     }
 }
