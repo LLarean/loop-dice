@@ -2489,6 +2489,7 @@ MonoBehaviour:
   _mapView: {fileID: 835905724}
   _back: {fileID: 1410163692}
   _roll: {fileID: 204483721}
+  _rollLabel: {fileID: 1579381759}
   _diceFaces:
   - {fileID: 1600961731}
   - {fileID: 1228491599}
