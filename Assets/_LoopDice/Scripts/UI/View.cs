@@ -4,16 +4,16 @@ namespace LoopDice
 {
     public class View : MonoBehaviour
     {
-        private ViewHub _viewHub;
+        private Views _views;
 
-        public void Initialize(ViewHub viewHub)
+        public void Initialize(Views views)
         {
-            _viewHub = viewHub;
+            _views = views;
         }
 
         public void Show()
         {
-            _viewHub.HideAllViews();
+            _views.HideAllViews();
             gameObject.SetActive(true);
         }
 
