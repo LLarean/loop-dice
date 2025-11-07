@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace LoopDice
 {
-    public class MenuView : MonoBehaviour
+    public class MenuView : View
     {
         [SerializeField] private Button _mute;
         [SerializeField] private Button _leaderboard;
