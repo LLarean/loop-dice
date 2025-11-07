@@ -10,6 +10,11 @@ namespace LoopDice
         [SerializeField] private Canvas _root;
         [SerializeField] private List<View> _views;
 
+        public void Initialize()
+        {
+            _views.ForEach(view => view.Initialize(this));
+        }
+        
         public bool Have<T>() where T : View
         {
             return _views.Any(view => view is T);
@@ -36,8 +41,6 @@ namespace LoopDice
             {
                 throw new ArgumentNullException(nameof(_views), "List<View> is NULL");
             }
-
-            _views.ForEach(view => view.Initialize(this));
         }
     }
 }

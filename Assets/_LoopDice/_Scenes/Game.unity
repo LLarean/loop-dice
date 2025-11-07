@@ -3506,7 +3506,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b883ad08f3ed03347a9c3a3f6879514d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  views: {fileID: 1272264400}
+  _views: {fileID: 1272264400}
 --- !u!1 &1021404972
 GameObject:
   m_ObjectHideFlags: 0
@@ -4236,6 +4236,7 @@ MonoBehaviour:
   _root: {fileID: 247018143}
   _views:
   - {fileID: 843970975}
+  - {fileID: 1021404974}
 --- !u!4 &1272264401
 Transform:
   m_ObjectHideFlags: 0

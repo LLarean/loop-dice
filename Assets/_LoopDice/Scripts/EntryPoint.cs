@@ -1,21 +1,19 @@
-using System;
 using UnityEngine;
 
 namespace LoopDice
 {
     public class EntryPoint : MonoBehaviour
     {
-        [SerializeField] private Views views;
+        [SerializeField] private Views _views;
 
         private void Start()
         {
-            var temp = views.Have<MenuView>();
-
-            if (views.Have<MenuView>())
-            {
-                var menuView = views.Get<MenuView>();
-                menuView.Show();
-            }
+            _views.Initialize();
+            
+            if (!_views.Have<MenuView>()) return;
+            
+            var menuView = _views.Get<MenuView>();
+            menuView.Show();
         }
     }
 }

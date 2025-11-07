@@ -6,7 +6,7 @@ using Random = System.Random;
 
 namespace LoopDice
 {
-    public class GameTableView : MonoBehaviour
+    public class GameTableView : View
     {
         [SerializeField] private MapView _mapView;
         [Space]
