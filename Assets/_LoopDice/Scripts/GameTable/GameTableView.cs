@@ -16,6 +16,13 @@ namespace LoopDice
         [Space]
         [SerializeField] private DiceFace[] _diceFaces;
 
+        private AudioPlayer _audioPlayer;
+
+        public void SetAudioPlayer(AudioPlayer audioPlayer)
+        {
+            _audioPlayer = audioPlayer;
+        }
+        
         private void Start()
         {
             _back.onClick.AddListener(Back);
@@ -31,6 +38,8 @@ namespace LoopDice
 
         private void Roll()
         {
+            _audioPlayer.PlayRollDice();
+            
             List<int> results = new List<int>();
             Random random = new Random();
 
@@ -48,5 +57,6 @@ namespace LoopDice
 
             _rollLabel.text = "Roll Selected";
         }
+        
     }
 }

@@ -7,6 +7,7 @@ namespace LoopDice
         public static AudioPlayer Instance { get; private set; }
 
         [SerializeField] private AudioSource _sound;
+        [SerializeField] private AudioClip _rollDice;
         
         private void Awake()
         {
@@ -21,9 +22,9 @@ namespace LoopDice
             }
         }
     
-        public void PlaySound(AudioClip clip)
+        public void PlayRollDice()
         {
-            _sound.PlayOneShot(clip);
+            _sound.PlayOneShot(_rollDice);
         }
     }
 }

@@ -2608,6 +2608,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sound: {fileID: 1825897557}
+  _rollDice: {fileID: 8300000, guid: fc8f29db3f2b54447926403ffad732f3, type: 3}
 --- !u!4 &781923093
 Transform:
   m_ObjectHideFlags: 0
@@ -3553,6 +3554,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _views: {fileID: 1272264400}
+  _audioPlayer: {fileID: 781923092}
 --- !u!1 &1021404972
 GameObject:
   m_ObjectHideFlags: 0
