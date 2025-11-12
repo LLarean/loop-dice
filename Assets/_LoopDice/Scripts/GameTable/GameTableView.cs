@@ -52,7 +52,14 @@ namespace LoopDice
             for (int i = 0; i < results.Count; i++)
             {
                 var valueIndex = results[i] - 1;
-                _diceFaces[i].ShowValue(valueIndex);
+                
+                if (valueIndex is >= 0 and < 6)
+                {
+                    if (_diceFaces[i].IsPressed == true)
+                    {
+                        _diceFaces[i].ShowValue(valueIndex);
+                    }
+                }
             }
 
             _rollLabel.text = "Roll Selected";

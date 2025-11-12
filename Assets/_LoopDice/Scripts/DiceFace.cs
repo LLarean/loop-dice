@@ -15,12 +15,15 @@ namespace LoopDice
         private int _valueIndex;
         private bool _isPressed;
 
+        public bool IsPressed => _isPressed;
+        
         public void ShowValue(int valueIndex)
         {
             _valueIndex = valueIndex;
             _image.sprite = _dice[valueIndex];
+            _isPressed = false;
         }
-
+        
         [Button]
         private void ShowOne() => ShowValue(0);
 
