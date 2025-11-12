@@ -28,6 +28,11 @@ namespace LoopDice
             _back.onClick.AddListener(Back);
             _roll.onClick.AddListener(Roll);
             _rollLabel.text = "Roll All";
+
+            foreach (var diceFace in _diceFaces)
+            {
+                diceFace.OnDiceClicked += DiceClick;
+            }
         }
 
         private void Back()
@@ -61,9 +66,22 @@ namespace LoopDice
                     }
                 }
             }
-
-            _rollLabel.text = "Roll Selected";
+            
+            _rollLabel.text = "Skip";
         }
         
+        private void DiceClick()
+        {
+            foreach (var diceFace in _diceFaces)
+            {
+                if (diceFace.IsPressed)
+                {
+                    _rollLabel.text = "Roll Selected";
+                    return;
+                }
+            }
+            
+            _rollLabel.text = "Skip";
+        }
     }
 }

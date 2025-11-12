@@ -1,3 +1,4 @@
+using System;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,6 +17,12 @@ namespace LoopDice
         private bool _isPressed;
 
         public bool IsPressed => _isPressed;
+
+        public event Action OnDiceClicked;
+        
+        public void EnableInteractable() => _button.interactable = true;
+        
+        public void DisableInteractable() => _button.interactable = false;
         
         public void ShowValue(int valueIndex)
         {
@@ -24,28 +31,16 @@ namespace LoopDice
             _isPressed = false;
         }
         
-        [Button]
-        private void ShowOne() => ShowValue(0);
+        [Button] private void ShowOne() => ShowValue(0);
+        [Button] private void ShowTwo() => ShowValue(1);
+        [Button] private void ShowThree() => ShowValue(2);
+        [Button] private void ShowFour() => ShowValue(3);
+        [Button] private void ShowFive() => ShowValue(4);
+        [Button] private void ShowSix() => ShowValue(5);
 
-        [Button]
-        private void ShowTwo() => ShowValue(1);
+        private void Start() => _button.onClick.AddListener(Click);
 
-        [Button]
-        private void ShowThree() => ShowValue(2);
-
-        [Button]
-        private void ShowFour() => ShowValue(3);
-
-        [Button]
-        private void ShowFive() => ShowValue(4);
-
-        [Button]
-        private void ShowSix() => ShowValue(5);
-
-        private void Start()
-        {
-            _button.onClick.AddListener(Click);
-        }
+        private void OnDestroy() => _button.onClick.RemoveAllListeners();
 
         private void Click()
         {
