@@ -36,7 +36,10 @@ namespace LoopDice
 
         private void NewGame()
         {
-            throw new NotImplementedException();
+            if (!_views.Have<GameTableView>()) return;
+            
+            var gameTableView = _views.Get<GameTableView>();
+            gameTableView.Show();
         }
     }
 }

@@ -4,7 +4,7 @@ namespace LoopDice
 {
     public class View : MonoBehaviour
     {
-        private Views _views;
+        protected Views _views;
 
         public void Initialize(Views views)
         {
