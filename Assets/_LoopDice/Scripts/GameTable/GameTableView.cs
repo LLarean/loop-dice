@@ -42,30 +42,8 @@ namespace LoopDice
 
             for (int i = 0; i < results.Count; i++)
             {
-                if (results[i] == 1)
-                {
-                    _diceFaces[i].ShowOne();
-                }
-                else if (results[i] == 2)
-                {
-                    _diceFaces[i].ShowTwo();
-                }
-                else if (results[i] == 3)
-                {
-                    _diceFaces[i].ShowThree();
-                }
-                else if (results[i] == 4)
-                {
-                    _diceFaces[i].ShowFour();
-                }
-                else if (results[i] == 5)
-                {
-                    _diceFaces[i].ShowFive();
-                }
-                else if (results[i] == 6)
-                {
-                    _diceFaces[i].ShowSix();
-                }
+                var valueIndex = results[i] - 1;
+                _diceFaces[i].ShowValue(valueIndex);
             }
 
             _rollLabel.text = "Roll Selected";

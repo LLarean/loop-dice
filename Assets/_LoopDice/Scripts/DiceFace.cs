@@ -1,4 +1,3 @@
-using System;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,75 +8,47 @@ namespace LoopDice
     {
         [SerializeField] private Button _button;
         [Space]
-        [SerializeField] private GameObject _one;
-        [SerializeField] private GameObject _two;
-        [SerializeField] private GameObject _three;
-        [SerializeField] private GameObject _four;
-        [SerializeField] private GameObject _five;
-        [SerializeField] private GameObject _six;
-        [Space]
-        [SerializeField] private GameObject _checkbox;
+        [SerializeField] private Image _image;
+        [SerializeField] private Sprite[] _dice;
+        [SerializeField] private Sprite[] _diceBorder;
+
+        private int _valueIndex;
+        private bool _isPressed;
+
+        public void ShowValue(int valueIndex)
+        {
+            _valueIndex = valueIndex;
+            _image.sprite = _dice[valueIndex];
+        }
 
         [Button]
-        public void ShowOne()
-        {
-            HideAll();
-            _one.gameObject.SetActive(true);
-        }
-        
-        [Button]
-        public void ShowTwo()
-        {
-            HideAll();
-            _two.gameObject.SetActive(true);
-        }
-        
-        [Button]
-        public void ShowThree()
-        {
-            HideAll();
-            _three.gameObject.SetActive(true);
-        }
-        
-        [Button]
-        public void ShowFour()
-        {
-            HideAll();
-            _four.gameObject.SetActive(true);
-        }
-        
-        [Button]
-        public void ShowFive()
-        {
-            HideAll();
-            _five.gameObject.SetActive(true);
-        }
-        
-        [Button]
-        public void ShowSix()
-        {
-            HideAll();
-            _six.gameObject.SetActive(true);
-        }
+        private void ShowOne() => ShowValue(0);
 
-        private void HideAll()
-        {
-            _one.gameObject.SetActive(false);
-            _two.gameObject.SetActive(false);
-            _three.gameObject.SetActive(false);
-            _four.gameObject.SetActive(false);
-            _five.gameObject.SetActive(false);
-            _six.gameObject.SetActive(false);
-            
-            _checkbox.gameObject.SetActive(false);
-        }
+        [Button]
+        private void ShowTwo() => ShowValue(1);
+
+        [Button]
+        private void ShowThree() => ShowValue(2);
+
+        [Button]
+        private void ShowFour() => ShowValue(3);
+
+        [Button]
+        private void ShowFive() => ShowValue(4);
+
+        [Button]
+        private void ShowSix() => ShowValue(5);
 
         private void Start()
         {
-            _button.onClick.AddListener(() =>
-            {
-                _checkbox.gameObject.SetActive(!_checkbox.activeSelf);
-            });
+            _button.onClick.AddListener(Click);
+        }
+
+        private void Click()
+        {
+            var dice = _isPressed ? _dice[_valueIndex] : _diceBorder[_valueIndex];
+            _image.sprite = dice;
+            _isPressed = !_isPressed;
         }
     }
 }
