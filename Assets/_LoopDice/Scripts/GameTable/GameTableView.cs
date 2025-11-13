@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -17,6 +18,9 @@ namespace LoopDice
         [SerializeField] private DiceFace[] _diceFaces;
 
         private AudioPlayer _audioPlayer;
+
+        public event Action OnBackClick;
+        public event Action OnMainClick;
 
         public void SetAudioPlayer(AudioPlayer audioPlayer)
         {

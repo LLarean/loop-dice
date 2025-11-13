@@ -12,5 +12,21 @@ namespace LoopDice
             _model = model;
             _view = view;
         }
+
+        public void Subsribe()
+        {
+            _view.OnBackClick += ToMenu;
+            _view.OnMainClick += MainAction;
+        }
+
+        private void ToMenu()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private void MainAction()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
